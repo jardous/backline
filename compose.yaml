@@ -1,0 +1,13 @@
+services:
+  backline:
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      OWNER_PASSWORD: ${OWNER_PASSWORD:?Set OWNER_PASSWORD in .env (at least 12 characters)}
+    volumes:
+      - backline-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  backline-data:
